@@ -1,0 +1,172 @@
+
+        .cyber-font { font-family: 'Share Tech Mono', monospace; }
+        .cyber-heading { font-family: 'Orbitron', sans-serif; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+
+        .cyber-grid {
+            background-image: linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .scanlines {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 6px 100%;
+        }
+        .bg-blob { filter: blur(140px); z-index: -1; position: fixed; border-radius: 50%; }
+        html { scroll-behavior: smooth; }
+
+        .terminal-cursor::after {
+            content: '█';
+            animation: blink 0.8s step-start infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .clip-hacker-style {
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+        }
+        .clip-card-style {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+        }
+
+        #matrix-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2; opacity: 0.12; pointer-events: none;
+        }
+
+        .jarvis-eye {
+            transition: transform 0.05s ease-out;
+            display: inline-block;
+            transform-origin: center;
+        }
+        
+        #jarvis-floating-container {
+            touch-action: none;
+            user-select: none;
+        }
+
+        @keyframes glitch-shake {
+            0% { transform: translate(0, 0) skew(0deg); }
+            20% { transform: translate(-3px, 2px) skew(-2deg); }
+            40% { transform: translate(3px, -1px) skew(3deg); }
+            60% { transform: translate(-1px, -2px) skew(-1deg); }
+            80% { transform: translate(2px, 1px) skew(1deg); }
+            100% { transform: translate(0, 0) skew(0deg); }
+        }
+        .glitch-active {
+            animation: glitch-shake 0.25s linear infinite;
+            filter: hue-rotate(90deg) contrast(150%);
+        }
+		.visitor-card,
+.system-analysis,
+.system-status-panel{
+    border:1px solid rgba(0,255,102,.2);
+    background:rgba(0,255,102,.03);
+    backdrop-filter:blur(10px);
+    padding:18px;
+}
+
+.visitor-title,
+.panel-title,
+.system-analysis h3{
+    color:#00ff66;
+    font-weight:700;
+    margin-bottom:14px;
+    letter-spacing:2px;
+}
+
+.visitor-item,
+.status-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-size:.85rem;
+}
+
+.analysis-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.analysis-grid div{
+    border:1px solid rgba(255,255,255,.05);
+    padding:12px;
+    background:rgba(255,255,255,.02);
+}
+
+.analysis-grid span{
+    display:block;
+    color:#888;
+    font-size:.75rem;
+}
+
+.analysis-grid strong{
+    display:block;
+    margin-top:5px;
+    color:#fff;
+}
+#scan-status{
+    float:right;
+    font-size:11px;
+    color:#00f0ff;
+    animation: blink 1s infinite;
+}
+@media(max-width:768px){
+
+    .analysis-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.visitor-card,
+.system-analysis,
+.system-status-panel{
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(0,255,102,.05),
+        rgba(0,0,0,.85)
+    );
+
+    box-shadow:
+    0 0 25px rgba(0,255,102,.08),
+    inset 0 0 15px rgba(0,255,102,.04);
+
+    position: relative;
+    overflow: hidden;
+}
+.system-status-panel::before,
+.visitor-card::before,
+.system-analysis::before{
+
+    content:"";
+    position:absolute;
+    left:0;
+    top:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,255,102,.12),
+        transparent
+    );
+
+    animation:
+    scanner 5s linear infinite;
+}
+
+@keyframes scanner{
+
+    from{
+        top:-100%;
+    }
+
+    to{
+        top:100%;
+    }
+}
